@@ -1,0 +1,31 @@
+name: dockercompose9821222312876345499
+services:
+  dockerappinazure:
+    build:
+      context: C:\Users\RohitSharma\source\repos\DockerAppinAzure
+      dockerfile: DockerAppinAzure/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: http://+:80
+    image: dockerappinazure.azurecr.io/dockerappinazure
+    networks:
+      learnnetwork: null
+  mvcui:
+    build:
+      context: C:\Users\RohitSharma\source\repos\DockerAppinAzure
+      dockerfile: MVCUI/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: http://+:80
+    image: dockerappinazure.azurecr.io/mvcui
+    networks:
+      learnnetwork: null
+    ports:
+    - mode: ingress
+      target: 80
+      published: "8080"
+      protocol: tcp
+networks:
+  learnnetwork:
+    name: dockercompose9821222312876345499_learnnetwork
+    driver: bridge

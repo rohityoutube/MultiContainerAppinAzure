@@ -1,0 +1,59 @@
+version: '3.4'
+
+services:
+  dockerappinazure:
+    image: dockerappinazure.azurecr.io/dockerappinazure:dev
+    container_name: DockerAppinAzure_1
+    build:
+      target: base
+      labels:
+        com.microsoft.created-by: "visual-studio"
+        com.microsoft.visual-studio.project-name: "DockerAppinAzure"
+    environment:
+      - DOTNET_USE_POLLING_FILE_WATCHER=1
+      - ASPNETCORE_LOGGING__CONSOLE__DISABLECOLORS=true
+      - NUGET_FALLBACK_PACKAGES=/root/.nuget/fallbackpackages
+    volumes:
+      - C:\Users\RohitSharma\source\repos\DockerAppinAzure\DockerAppinAzure:/app
+      - C:\Users\RohitSharma\source\repos\DockerAppinAzure:/src
+      - C:\Users\RohitSharma\vsdbg\vs2017u5:/remote_debugger:rw
+      - C:\Users\RohitSharma\.nuget\packages\:/root/.nuget/packages:ro
+      - C:\Program Files (x86)\DevExpress 21.2\Components\Offline Packages:/root/.nuget/fallbackpackages:ro
+      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
+      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+
+    entrypoint: tail -f /dev/null
+    labels:
+      com.microsoft.visualstudio.debuggee.program: "dotnet"
+      com.microsoft.visualstudio.debuggee.arguments: " --additionalProbingPath /root/.nuget/packages --additionalProbingPath /root/.nuget/fallbackpackages  \"/app/bin/Debug/net6.0/DockerAppinAzure.dll\""
+      com.microsoft.visualstudio.debuggee.workingdirectory: "/app"
+      com.microsoft.visualstudio.debuggee.killprogram: "/bin/sh -c \"if PID=$$(pidof dotnet); then kill $$PID; fi\""
+    tty: true
+  mvcui:
+    image: dockerappinazure.azurecr.io/mvcui:dev
+    container_name: MVCUI_1
+    build:
+      target: base
+      labels:
+        com.microsoft.created-by: "visual-studio"
+        com.microsoft.visual-studio.project-name: "MVCUI"
+    environment:
+      - DOTNET_USE_POLLING_FILE_WATCHER=1
+      - ASPNETCORE_LOGGING__CONSOLE__DISABLECOLORS=true
+      - NUGET_FALLBACK_PACKAGES=/root/.nuget/fallbackpackages
+    volumes:
+      - C:\Users\RohitSharma\source\repos\DockerAppinAzure\MVCUI:/app
+      - C:\Users\RohitSharma\source\repos\DockerAppinAzure:/src
+      - C:\Users\RohitSharma\vsdbg\vs2017u5:/remote_debugger:rw
+      - C:\Users\RohitSharma\.nuget\packages\:/root/.nuget/packages:ro
+      - C:\Program Files (x86)\DevExpress 21.2\Components\Offline Packages:/root/.nuget/fallbackpackages:ro
+      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
+      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+
+    entrypoint: tail -f /dev/null
+    labels:
+      com.microsoft.visualstudio.debuggee.program: "dotnet"
+      com.microsoft.visualstudio.debuggee.arguments: " --additionalProbingPath /root/.nuget/packages --additionalProbingPath /root/.nuget/fallbackpackages  \"/app/bin/Debug/net6.0/MVCUI.dll\""
+      com.microsoft.visualstudio.debuggee.workingdirectory: "/app"
+      com.microsoft.visualstudio.debuggee.killprogram: "/bin/sh -c \"if PID=$$(pidof dotnet); then kill $$PID; fi\""
+    tty: true

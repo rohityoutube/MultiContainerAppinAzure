@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "qrgAZXbM3UN+Me/RdIeNOgIVs2uHNs9f1CpfFUwwcWdxuw3y4dVref9m5nq4StRGS0e0r1++bP5hmp/SmwPm0w==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\RohitSharma\\source\\repos\\DockerAppinAzure\\MVCUI\\MVCUI.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\RohitSharma\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.17.2\\microsoft.visualstudio.azure.containers.tools.targets.1.17.2.nupkg.sha512"
+  ],
+  "logs": []
+}

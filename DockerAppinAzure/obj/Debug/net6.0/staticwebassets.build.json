@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "1CrslkVMWMjMnubQgYwPO8MT2modj5+zgd7BoE6ZRec=",
+  "Source": "DockerAppinAzure",
+  "BasePath": "_content/DockerAppinAzure",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

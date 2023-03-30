@@ -1,0 +1,14 @@
+version: '3.4'
+
+services:
+  dockerappinazure:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+
+
+
+  mvcui:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+
+
